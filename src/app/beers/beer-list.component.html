@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-9 mt-1 my-3">
+    <h1>Beer List</h1>
+  </div>
+  <div class="col-md-3">
+    <ngbd-modal-add-bear [add]="addBeer"></ngbd-modal-add-bear>
+  </div>
+</div>
+
+<div class="row bg-body-tertiary mb-3 p-4">
+  <div *ngFor="let beer of beers" class="col-md-3">
+    <div class="card">
+      <img
+        src="{{beer.picture}}"
+        class="card-img-top"
+        style="max-height: 250px"
+        alt="{{beer.name}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{beer.name}}</h5>
+        <p class="card-text">{{beer.origin}}</p>
+        <ngb-rating [max]="9" [(rate)]="beer.value" />
+        <br />
+        <br />
+        <ngbd-modal-basic
+          [update]="updateBeer"
+          [selected]="beer"
+        ></ngbd-modal-basic>
+      </div>
+    </div>
+  </div>
+</div>

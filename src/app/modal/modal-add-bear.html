@@ -1,0 +1,66 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Beer Hinzufügen</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <div class="input-group">
+          <label for="name" class="form-control">Name</label>
+
+          <input
+            [(ngModel)]="name"
+            id="name"
+            class="form-control"
+            name="name"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="input-group">
+          <label for="origin" class="form-control">Origin</label>
+          <input
+            [(ngModel)]="origin"
+            id="origin"
+            class="form-control"
+            name="name"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="input-group">
+          <label for="picture" class="form-control">Picture</label>
+
+          <input
+            [(ngModel)]="picture"
+            id="picture"
+            class="form-control"
+            name="picture"
+            type="text"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="modal.close(this.name, this.origin, this.picture)"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary mt-1" (click)="open(content)">
+  New beer
+</button>
